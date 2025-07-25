@@ -1,0 +1,66 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yel-bouz <yel-bouz@student.1337.ma>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/07/25 10:17:49 by yel-bouz          #+#    #+#              #
+#    Updated: 2025/07/25 10:49:29 by yel-bouz         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME			= game
+libft			= libft.a
+
+CC              = cc
+CFLAGS  = -Wall -Wextra -Werror
+N_FLAGS = -g
+O_FLAGS = -lm
+
+INC				= libft.h main.h
+ALL_SRC			= $(wildcard *.c)
+SRC				= $(filter-out test%.c, $(ALL_SRC))
+OBJ				= $(SRC:.c=.o)
+
+RM				= rm -f
+
+all: normal
+
+normal: CFLAGS = $(N_FLAGS)
+normal: $(LIBFT) $(NAME)
+
+strict: CFLAGS = -Wall -Wextra -Werror
+strict: $(LIBFT) $(NAME)
+
+.o: .c $(INC)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJ) $(LIBFT) 
+	$(CC) $(CFLAGS) $(OBJ) $(O_FLAGS) $(LIBFT)-o $(NAME)
+
+$(LIBFT):
+	@echo "Building libft"
+	@$(MAKE) -C libft
+	@echo "Copying libft.a to root directory"
+	@mv libft/$(LIBFT) .
+
+clean:
+	@echo "Cleaning minishell objects"
+	@$(RM) $(OBJ)
+	@echo "Cleaning libft objects"
+	@$(MAKE) -C libft clean
+
+fclean: clean
+	@echo "Cleaning minishell"
+	@$(RM) $(NAME)
+	@echo "Cleaning libft"
+	@$(MAKE) -C libft fclean
+	@$(RM) $(LIBFT)
+
+re : fclean all
+
+bonus: all
+
+.PHONY: all clean fclean re bonus
+.SECONDARY: $(OBJ)

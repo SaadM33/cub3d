@@ -1,0 +1,9 @@
+*.pdf
+a.out
+*.o
+*.a
+*.so
+*test*
+*vscode*
+libft.a
+game
