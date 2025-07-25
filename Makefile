@@ -6,12 +6,12 @@
 #    By: yel-bouz <yel-bouz@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/25 10:17:49 by yel-bouz          #+#    #+#              #
-#    Updated: 2025/07/25 11:03:35 by yel-bouz         ###   ########.fr        #
+#    Updated: 2025/07/25 14:41:52 by yel-bouz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= game
-libft			= libft.a
+LIBFT			= libft.a
 mlx				= libmlx.a
 
 CC				= cc
@@ -34,11 +34,11 @@ normal: $(LIBFT) $(NAME)
 strict: CFLAGS = -Wall -Wextra -Werror
 strict: $(LIBFT) $(NAME)
 
-.o: .c $(INC)
+.o: .c $(INC) $(LIBFT)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJ) $(LIBFT) 
-	$(CC) $(CFLAGS) $(OBJ) $(O_FLAGS) $(LIBFT) $(mlx) -o $(NAME)
+$(NAME): $(LIBFT) $(OBJ)  
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(O_FLAGS) $(mlx) -o $(NAME)
 
 $(LIBFT):
 	@echo "Building libft"

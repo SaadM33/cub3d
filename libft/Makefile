@@ -6,7 +6,7 @@
 #    By: yel-bouz <yel-bouz@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 12:17:46 by yel-bouz          #+#    #+#              #
-#    Updated: 2025/07/25 10:30:40 by yel-bouz         ###   ########.fr        #
+#    Updated: 2025/07/25 11:16:44 by yel-bouz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ clean:
 	@rm -f ${OBJ} ${OB}
 
 fclean: clean
-	rm -f ${NAME} 
+	@rm -f ${NAME} 
 
 re: fclean all
 
