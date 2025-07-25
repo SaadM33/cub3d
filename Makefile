@@ -6,17 +6,18 @@
 #    By: yel-bouz <yel-bouz@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/25 10:17:49 by yel-bouz          #+#    #+#              #
-#    Updated: 2025/07/25 10:49:29 by yel-bouz         ###   ########.fr        #
+#    Updated: 2025/07/25 11:03:35 by yel-bouz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= game
 libft			= libft.a
+mlx				= libmlx.a
 
-CC              = cc
+CC				= cc
 CFLAGS  = -Wall -Wextra -Werror
 N_FLAGS = -g
-O_FLAGS = -lm
+O_FLAGS = -lXext -lX11 -lm
 
 INC				= libft.h main.h
 ALL_SRC			= $(wildcard *.c)
@@ -37,7 +38,7 @@ strict: $(LIBFT) $(NAME)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ) $(LIBFT) 
-	$(CC) $(CFLAGS) $(OBJ) $(O_FLAGS) $(LIBFT)-o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(O_FLAGS) $(LIBFT) $(mlx) -o $(NAME)
 
 $(LIBFT):
 	@echo "Building libft"
