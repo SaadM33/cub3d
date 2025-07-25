@@ -9,4 +9,11 @@
 #include <math.h>
 #include "mlx.h"
 
+typedef struct s_game
+{
+	void	*mlx;
+	void	*win;
+}	t_game;
+
+
 #endif
