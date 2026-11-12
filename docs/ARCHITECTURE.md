@@ -42,9 +42,8 @@ every key quits.
 ### Parsing
 
 `parsemap(char *file)` returns `NULL` and ignores its argument. Its result
-is stored in a local variable and never used. Note that `av[1]` is read even
-when no argument was given (`ac == 1`), which is undefined behaviour in the
-current code once parsing is implemented to dereference it.
+is stored in a local variable and never used. With no argument, `av[1]` is `NULL`
+(`argv[argc]`), so a real parser will need to handle that case.
 
 ### Rendering
 

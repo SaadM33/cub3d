@@ -92,8 +92,8 @@ Targets: `all` (alias of `normal`, builds with `-g`), `strict`
 
   (Verified: this produces a working binary.)
 - **`make strict` does not pass yet.** `main.c` currently triggers
-  `-Wall -Wextra -Werror` errors (unused parameter `key`, unused parameter
-  `ac`/`file`, missing return in `close_win`, and so on).
+  `-Wall -Wextra -Werror` errors (unused parameters `key` and `file`, a missing
+  return in `close_win`, and so on).
 - Because of the target-specific `CFLAGS`, the default `make` build compiles
   with `-g` only and no warning flags.
 
