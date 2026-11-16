@@ -14,11 +14,13 @@
 
 char	**parsemap(char *file)
 {
+	(void)file;
 	return (NULL);
 }
 
 int	close_win(int key, void *param)
 {
+	(void)key;
 	t_game *game = (t_game * ) param;
 	mlx_destroy_window(game->mlx, game->win);
 	exit(0);
@@ -34,6 +36,7 @@ int	main(int ac, char *av[])
 	}
 	
 	parse_map = parsemap(av[1]);
+	(void)parse_map;
 	t_game	*game = ft_calloc(1, sizeof(t_game));
 	game->mlx = mlx_init();
 	if (!game->mlx)
