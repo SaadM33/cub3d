@@ -80,17 +80,6 @@ Targets: `all` (alias of `normal`, builds with `-g`), `strict`
 
 ### Known build issues
 
-- **Link order.** The Makefile links `-lXext -lX11 -lm` *before* `libmlx.a`,
-  so with linkers that resolve symbols left to right (for example on
-  current Debian/Ubuntu toolchains) `make` fails with `undefined reference to
-  'XFlush'`-style errors. Linking manually with the libraries last works:
-
-  ```sh
-  make libft.a
-  cc -g main.c libft.a libmlx.a -lXext -lX11 -lm -o game
-  ```
-
-  (Verified: this produces a working binary.)
 - **`make strict` does not pass yet.** `main.c` currently triggers
   `-Wall -Wextra -Werror` errors (unused parameters `key` and `file`, a missing
   return in `close_win`, and so on).
