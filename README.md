@@ -78,11 +78,8 @@ make re       # fclean + all
 Targets: `all` (alias of `normal`, builds with `-g`), `strict`
 (`-Wall -Wextra -Werror`), `clean`, `fclean`, `re`, `bonus` (same as `all`).
 
-### Known build issues
+### Build notes
 
-- **`make strict` does not pass yet.** `main.c` currently triggers
-  `-Wall -Wextra -Werror` errors (unused parameters `key` and `file`, a missing
-  return in `close_win`, and so on).
 - Because of the target-specific `CFLAGS`, the default `make` build compiles
   with `-g` only and no warning flags.
 
