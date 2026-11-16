@@ -38,7 +38,7 @@ strict: $(LIBFT) $(NAME)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(LIBFT) $(OBJ)  
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(O_FLAGS) $(mlx) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(mlx) $(O_FLAGS) -o $(NAME)
 
 $(LIBFT):
 	@echo "Building libft"
